@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev": "concurrently \"npm run fs\"",
+    "dev": "concurrently \"npm run scss\" \"npm run fs\"",
     "fs": "node five-server.js",
+    "scss": "sass -w ./scss:./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +23,9 @@
   },
   "homepage": "https://github.com/dol2156/base-jquery#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "five-server": "^0.3.2",
-    "prettier": "3.2.4"
+    "prettier": "3.2.4",
+    "sass": "^1.70.0"
   }
 }

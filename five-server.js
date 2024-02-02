@@ -7,7 +7,7 @@ const option = {
   // host :'localhost',
   port: 3000,
   open: true,
-  watch: ['./page'],
+  //watch: ['./page', './css'],
   // wait:1000,
   // injectCss:false,
   // ignore: [/\.s[ac]ss$/i, /\.tsx?$/i],
