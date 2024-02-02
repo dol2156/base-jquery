@@ -2,5 +2,10 @@
 @use "_reset" as *;
 @use "_function" as *;
 
+:root{
+  font-size:pxToRem(16);
+  
+}
+
 div{ outline:1px dashed red; }
-div{ width:pxToVw(50px, 320px); }
+div{ width:pxToVw(50, 320); }

@@ -1,3 +1,9 @@
+$browser-context: 16 ; // Default
+
 @function pxToVw($px, $viewportWidth: 1440px) {
   @return ($px / $viewportWidth) * 100vw;
+}
+
+@function pxToRem($pixels, $context: $browser-context) {
+  @return #{$pixels / $context}rem;
 }
