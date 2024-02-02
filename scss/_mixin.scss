@@ -1,0 +1,8 @@
+@use '_var' as *;
+
+@mixin viewport_LG() {
+  @media screen and (min-width: #{$viewport-LG}) {
+    @content;
+  }
+}
+

@@ -6,7 +6,7 @@ const option = {
   useLocalIp: true,
   // host :'localhost',
   port: 3000,
-  open: true,
+  open: false,
   //watch: ['./page', './css'],
   // wait:1000,
   // injectCss:false,

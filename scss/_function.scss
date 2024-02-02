@@ -1,4 +1,4 @@
-$browser-context: 16 ; // Default
+@use '_var' as *;
 
 @function pxToVw($px, $viewportWidth: 1440px) {
   @return ($px / $viewportWidth) * 100vw;

@@ -92,16 +92,20 @@ strong {
   font-weight: 700;
 }
 
-:root {
-  font-size: 1rem;
-}
-
 div {
   outline: 1px dashed red;
 }
 
 div {
   width: 15.625vw;
+  font-size: 5vw;
+}
+
+@media screen and (min-width: 750px) {
+  div {
+    width: 50%;
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=global.css.map */
