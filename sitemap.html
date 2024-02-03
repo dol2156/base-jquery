@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link rel="icon" href="data:," />
+    <title>sitemap.html</title>
+    <link href="sitemap.css" rel="stylesheet" />
+    <script src="/lib/jquery-3.7.1.min.js"></script>
+    <script src="/lib/handlebars-4.7.8.js"></script>
+    <script src="/lib/handlebars-helper.js"></script>
+  </head>
+  <body>
+    <div id="Page">
+      <header style="padding: 20px">
+        <div style="font-size: 36px; font-weight: 700; text-align: center">
+          Sitemap
+        </div>
+      </header>
+      <main>
+        <script id="Tpl-2e300913" type="text/x-handlebars-template">
+          {{#EACH array}}
+            <div>
+              {{obj}}
+            </div>
+          {{/EACH}}
+        </script>
+        <script>
+          $(function () {
+            Handlebars.render('Tpl-2e300913', {
+              array: ['A', 'B', 'C'],
+            });
+          });
+        </script>
+        <div id="Sitemap">
+          <ul>
+            <li>
+              <a href="#" target="_blank">MENU_NAME</a>
+              <ul>
+                <li>
+                  <a href="#" target="_blank">MENU_NAME</a>
+                  <ul>
+                    <li>
+                      <a href="#" target="_blank">MENU_NAME</a>
+                      <ul>
+                        <li>
+                          <a href="#" target="_blank">MENU_NAME</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
