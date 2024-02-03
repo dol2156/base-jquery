@@ -1,7 +1,4 @@
 @charset 'utf-8';
-//@use '_var' as *;
-//@use 'common/mixin' as *;
-//@use 'common/function' as *;
 @use 'common/' as *;
 /* 2023-04-28 :: START :: 디버깅시 사용 */
 .RR {
@@ -27,15 +24,3 @@ body {
     }
   }
 }
-
-//div {
-//  width: pxToVw(50, 320);
-//  font-size:pxToVw(16, 320);
-//}
-
-//@include viewport_LG() {
-//  div {
-//    width: 50%;
-//    font-size:pxToRem(32);
-//  }
-//}

@@ -13,7 +13,7 @@
   @return #{math.div($px, $viewport_width) * 100}vw;
 }
 
-@function vh($px, $viewport_height) {
+@function VH($px, $viewport_height) {
   @return #{math.div($px, $viewport_height) * 100}vh;
 }
 

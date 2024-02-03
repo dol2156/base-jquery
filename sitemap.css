@@ -135,7 +135,7 @@ html {
   gap: 4px;
   padding: 4px 10px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
 }
 @media screen and (max-width: 767px) {
   #Sitemap > ul > li a {
