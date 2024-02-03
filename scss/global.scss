@@ -3,11 +3,28 @@
 //@use 'common/mixin' as *;
 //@use 'common/function' as *;
 //@use 'common/reset' as *;
-@use 'common/**/*.scss' as *;
-
-div {
-  outline: 1px dashed red;
+@use 'common/' as *;
+/**/
+$root-font-size: 16px;
+/**/
+/* 2023-04-28 :: START :: 디버깅시 사용 */
+.RR {
+  outline: 1px dashed red !important;
 }
+.RRR > * {
+  outline: 1px dashed blue !important;
+}
+/* // 2023-04-28 :: END :: 디버깅시 사용 */
+:root {
+  font-size: $root-font-size;
+}
+
+body {
+  div {
+    outline: 1px dashed blue;
+  }
+}
+
 //div{ width:pxToVw(50, 320); }
 //div {
 //  width: pxToVw(50, 320);

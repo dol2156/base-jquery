@@ -7,9 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev": "concurrently \"npm run scss\" \"npm run fs\"",
+    "dev": "concurrently \"npm run scss1\" \"npm run scss2\" \"npm run fs\"",
     "fs": "node five-server.js",
-    "scss": "sass -w ./scss:./css",
+    "scss1": "node-sass scss/ -o css/ --output-style compressed --recursive --source-map true",
+    "scss2": "node-sass scss/ -o css/ --output-style compressed --recursive --source-map true -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
