@@ -1,25 +1,34 @@
 @use 'sass:math';
-@use "var" as *;
+@use 'var' as *;
 
-//@function em($pixels, $context: $browser-context) {
-//  @return #{math.div($pixels, $context)}em;
-//}
-//
-//@function rem($pixels, $context: $browser-context) {
-//  @return #{math.div($pixels, $context)}rem;
-//}
-
-@function VW($px, $width) {
-  @return #{math.div($px, $width) * 100}vw;
-}
-@function vh($px, $height) {
-  @return #{math.div($px, $height) * 100}vh;
+@function EM($pixels, $context: $RootFontSize) {
+  @return #{math.div($pixels, $context)}em;
 }
 
-@function mpx($px) {
+@function REM($px, $context: $RootFontSize) {
+  @return #{math.div($px, $context)};
+}
+
+@function VW($px, $viewport_width: $DesignWidth_Mobile) {
+  @return #{math.div($px, $viewport_width) * 100}vw;
+}
+
+@function vh($px, $viewport_height) {
+  @return #{math.div($px, $viewport_height) * 100}vh;
+}
+
+@function MPX($px) {
   @return math.div($px, 2);
 }
 
-@function percent($num, $num2) {
+@function PERCENT($num, $num2) {
   @return math.div($num, $num2) * 100%;
+}
+
+@function STRIP_UNIT($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
 }

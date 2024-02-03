@@ -13,12 +13,15 @@
 /* // 2023-04-28 :: END :: 디버깅시 사용 */
 :root {
   font-size: $RootFontSize;
+  @include 휴대폰에서만(){
+    font-size: REM(32px);
+  }
 }
 
 body {
   #page {
     outline: 1px dashed red;
-    width: VW(50, 320);
+    width: VW(100px);
     @include PC에서만() {
       width: 50%;
     }
