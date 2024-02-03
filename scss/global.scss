@@ -1,21 +1,22 @@
 @charset 'utf-8';
 //@use '_var' as *;
-@use '_mixin' as *;
-@use '_function' as *;
-@use '_reset' as *;
+//@use 'common/mixin' as *;
+//@use 'common/function' as *;
+//@use 'common/reset' as *;
+@use 'common/**/*.scss' as *;
 
 div {
   outline: 1px dashed red;
 }
 //div{ width:pxToVw(50, 320); }
-div {
-  width: pxToVw(50, 320);
-  font-size:pxToVw(16, 320);
-}
+//div {
+//  width: pxToVw(50, 320);
+//  font-size:pxToVw(16, 320);
+//}
 
-@include viewport_LG() {
-  div {
-    width: 50%;
-    font-size:pxToRem(32);
-  }
-}
+//@include viewport_LG() {
+//  div {
+//    width: 50%;
+//    font-size:pxToRem(32);
+//  }
+//}

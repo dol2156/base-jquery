@@ -1,4 +1,4 @@
-@use '_var' as *;
+@use "'common/var" as *;
 
 @function pxToVw($px, $viewportWidth: 1440px) {
   @return ($px / $viewportWidth) * 100vw;
