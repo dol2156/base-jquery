@@ -133,9 +133,9 @@ html {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 0 10px;
+  padding: 4px 10px;
   border-radius: 3px;
-  /* 767px 이하 화면*/
+  font-size: 12px;
 }
 @media screen and (max-width: 767px) {
   #Sitemap > ul > li a {
@@ -156,4 +156,20 @@ html {
 }
 #Sitemap > ul > li a[href] .Link {
   color: #25ba00;
+}
+#Loading {
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 10vw;
+  font-weight: 900;
+  color: white;
 }

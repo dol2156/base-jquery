@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="Loading">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -7,13 +7,15 @@
       content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <link rel="icon" href="data:," />
-    <title>sitemap.html</title>
-    <link href="sitemap.css" rel="stylesheet" />
+    <title>Sitemap</title>
+    <link href="/sitemap.css" rel="stylesheet" />
     <script src="/lib/jquery-3.7.1.min.js"></script>
     <script src="/lib/handlebars-4.7.8.js"></script>
     <script src="/lib/handlebars-helper.js"></script>
+    <script src="/sitemap.js"></script>
   </head>
   <body>
+    <div id="Loading">Loading</div>
     <div id="Page">
       <header style="padding: 20px">
         <div style="font-size: 36px; font-weight: 700; text-align: center">
@@ -22,41 +24,137 @@
       </header>
       <main>
         <script id="Tpl-2e300913" type="text/x-handlebars-template">
-          {{#EACH array}}
-            <div>
-              {{obj}}
-            </div>
-          {{/EACH}}
-        </script>
-        <script>
-          $(function () {
-            Handlebars.render('Tpl-2e300913', {
-              array: ['A', 'B', 'C'],
-            });
-          });
-        </script>
-        <div id="Sitemap">
-          <ul>
-            <li>
-              <a href="#" target="_blank">MENU_NAME</a>
-              <ul>
+          <div id='Sitemap'>
+            <ul>
+              {{#EACH MENU_DATA}}
                 <li>
-                  <a href="#" target="_blank">MENU_NAME</a>
-                  <ul>
-                    <li>
-                      <a href="#" target="_blank">MENU_NAME</a>
-                      <ul>
+                  {{#if obj.PAGE_KEY}}
+                    <a href='{{obj.PAGE_KEY}}' target='_blank'>
+                      <div class='PageKey'>
+                        [{{obj.PAGE_KEY}}]
+                      </div>
+                      <div class='PageLink'>
+                        {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                      </div>
+                    </a>
+                  {{else if obj.EXTERNAL_LINK}}
+                    <a href='{{obj.EXTERNAL_LINK}}' target='_blank'>
+                      <div class='ExternalLink'>
+                        {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                      </div>
+                    </a>
+                  {{else}}
+                    <a>
+                      <div class='NoLink'>
+                        {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                      </div>
+                    </a>
+                  {{/if}}
+                  {{#if obj.CHILD}}
+                    <ul>
+                      {{#EACH obj.CHILD}}
                         <li>
-                          <a href="#" target="_blank">MENU_NAME</a>
+                          {{#if obj.PAGE_KEY}}
+                            <a href='{{obj.PAGE_KEY}}' target='_blank'>
+                              <div class='PageKey'>
+                                [{{obj.PAGE_KEY}}]
+                              </div>
+                              <div class='PageLink'>
+                                {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                              </div>
+                            </a>
+                          {{else if obj.EXTERNAL_LINK}}
+                            <a href='{{obj.EXTERNAL_LINK}}' target='_blank'>
+                              <div class='ExternalLink'>
+                                {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                              </div>
+                            </a>
+                          {{else}}
+                            <a>
+                              <div class='NoLink'>
+                                {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                              </div>
+                            </a>
+                          {{/if}}
+                          {{#if obj.CHILD}}
+                            <ul>
+                              {{#EACH obj.CHILD}}
+                                <li>
+                                  {{#if obj.PAGE_KEY}}
+                                    <a href='{{obj.PAGE_KEY}}' target='_blank'>
+                                      <div class='PageKey'>
+                                        [{{obj.PAGE_KEY}}]
+                                      </div>
+                                      <div class='PageLink'>
+                                        {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                                      </div>
+                                    </a>
+                                  {{else if obj.EXTERNAL_LINK}}
+                                    <a
+                                      href='{{obj.EXTERNAL_LINK}}'
+                                      target='_blank'
+                                    >
+                                      <div class='ExternalLink'>
+                                        {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                                      </div>
+                                    </a>
+                                  {{else}}
+                                    <a>
+                                      <div class='NoLink'>
+                                        {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                                      </div>
+                                    </a>
+                                  {{/if}}
+                                  {{#if obj.CHILD}}
+                                    <ul>
+                                      {{#EACH obj.CHILD}}
+                                        <li>
+                                          {{#if obj.PAGE_KEY}}
+                                            <a
+                                              href='{{obj.PAGE_KEY}}'
+                                              target='_blank'
+                                            >
+                                              <div class='PageKey'>
+                                                [{{obj.PAGE_KEY}}]
+                                              </div>
+                                              <div class='PageLink'>
+                                                {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                                              </div>
+                                            </a>
+                                          {{else if obj.EXTERNAL_LINK}}
+                                            <a
+                                              href='{{obj.EXTERNAL_LINK}}'
+                                              target='_blank'
+                                            >
+                                              <div class='ExternalLink'>
+                                                {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                                              </div>
+                                            </a>
+                                          {{else}}
+                                            <a>
+                                              <div class='NoLink'>
+                                                {{obj.뎁스1}}{{obj.뎁스2}}{{obj.뎁스3}}{{obj.뎁스4}}
+                                              </div>
+                                            </a>
+                                          {{/if}}
+
+                                        </li>
+                                      {{/EACH}}
+                                    </ul>
+                                  {{/if}}
+                                </li>
+                              {{/EACH}}
+                            </ul>
+                          {{/if}}
                         </li>
-                      </ul>
-                    </li>
-                  </ul>
+                      {{/EACH}}
+                    </ul>
+                  {{/if}}
                 </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+              {{/EACH}}
+            </ul>
+          </div>
+        </script>
       </main>
     </div>
   </body>
