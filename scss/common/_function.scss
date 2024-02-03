@@ -1,9 +1,25 @@
-@use "'common/var" as *;
+@use 'sass:math';
+@use "var" as *;
 
-@function pxToVw($px, $viewportWidth: 1440px) {
-  @return ($px / $viewportWidth) * 100vw;
+//@function em($pixels, $context: $browser-context) {
+//  @return #{math.div($pixels, $context)}em;
+//}
+//
+//@function rem($pixels, $context: $browser-context) {
+//  @return #{math.div($pixels, $context)}rem;
+//}
+
+@function VW($px, $width) {
+  @return #{math.div($px, $width) * 100}vw;
+}
+@function vh($px, $height) {
+  @return #{math.div($px, $height) * 100}vh;
 }
 
-@function pxToRem($pixels, $context: $browser-context) {
-  @return #{$pixels / $context}rem;
+@function mpx($px) {
+  @return math.div($px, 2);
+}
+
+@function percent($num, $num2) {
+  @return math.div($num, $num2) * 100%;
 }

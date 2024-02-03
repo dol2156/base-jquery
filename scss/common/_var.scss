@@ -1,2 +1,7 @@
-$browser-context: 16; // Browser default font-size
-$viewport-LG: 750px;
+$RootFontSize: 16px;
+/**/
+$BreakPoint_휴대폰: 480px; // 스마트폰이나 작은 태블릿을 위한 브레이크 포인트입니다.
+$BreakPoint_태블릿: 768px; // 태블릿이나 큰 스마트폰을 위한 브레이크 포인트입니다.
+$BreakPoint_랩탑: 1024px; // 데스크탑 컴퓨터나 태블릿을 위한 브레이크 포인트입니다.
+$BreakPoint_데스크탑: 1200px; // 큰 모니터나 고해상도 디스플레이를 위한 브레이크 포인트입니다.
+/**/

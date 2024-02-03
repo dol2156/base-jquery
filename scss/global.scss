@@ -2,11 +2,7 @@
 //@use '_var' as *;
 //@use 'common/mixin' as *;
 //@use 'common/function' as *;
-//@use 'common/reset' as *;
 @use 'common/' as *;
-/**/
-$root-font-size: 16px;
-/**/
 /* 2023-04-28 :: START :: 디버깅시 사용 */
 .RR {
   outline: 1px dashed red !important;
@@ -16,16 +12,19 @@ $root-font-size: 16px;
 }
 /* // 2023-04-28 :: END :: 디버깅시 사용 */
 :root {
-  font-size: $root-font-size;
+  font-size: $RootFontSize;
 }
 
 body {
-  div {
-    outline: 1px dashed blue;
+  #page {
+    outline: 1px dashed red;
+    width: VW(50, 320);
+    @include PC에서만() {
+      width: 50%;
+    }
   }
 }
 
-//div{ width:pxToVw(50, 320); }
 //div {
 //  width: pxToVw(50, 320);
 //  font-size:pxToVw(16, 320);
