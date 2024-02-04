@@ -9,12 +9,20 @@
   @return #{math.div($px, $context)}rem;
 }
 
-@function VW($px, $viewport_width: $DesignWidth_Mobile) {
-  @return #{math.div($px, $viewport_width) * 100}vw;
+@function MVW($px) {
+  @return #{math.div($px, $DesignWidth_Mobile) * 100}vw;
 }
 
-@function VH($px, $viewport_height) {
-  @return #{math.div($px, $viewport_height) * 100}vh;
+@function PVW($px) {
+  @return #{math.div($px, $DesignWidth_PC) * 100}vw;
+}
+
+@function MVH($px) {
+  @return #{math.div($px, $DesignWidth_Mobile) * 100}vh;
+}
+
+@function PVH($px) {
+  @return #{math.div($px, $DesignWidth_PC) * 100}vh;
 }
 
 @function MPX($px) {
@@ -34,5 +42,5 @@
 }
 
 @function tailwindcssVars() {
-  @return "KSM";
+  @return 'KSM';
 }

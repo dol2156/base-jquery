@@ -10,7 +10,7 @@
 body {
   aside {
     outline: 1px dashed red;
-    width: VW(100px);
+    width: MVW(100px);
     @include PC에서만() {
       width: 50%;
     }
