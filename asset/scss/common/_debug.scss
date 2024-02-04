@@ -1,0 +1,7 @@
+@use 'var' as *;
+.RR {
+  outline: 1px dashed red !important;
+}
+.RRR > * {
+  outline: 1px dashed blue !important;
+}

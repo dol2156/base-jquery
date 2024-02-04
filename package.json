@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev": "concurrently \"npm run scss\" \"npm run fs\"",
+    "dev": "concurrently \"npm run scss_dev\" \"npm run fs\"",
     "fs": "node five-server.js",
+    "scss_dev": "sass ./asset/scss:./asset/css --watch",
     "scss": "sass ./asset/scss:./asset/css --watch --style=compressed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

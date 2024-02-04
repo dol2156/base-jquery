@@ -6,7 +6,7 @@
 }
 
 @function REM($px, $context: $RootFontSize) {
-  @return #{math.div($px, $context)};
+  @return #{math.div($px, $context)}rem;
 }
 
 @function VW($px, $viewport_width: $DesignWidth_Mobile) {
@@ -31,4 +31,8 @@
   }
 
   @return $number;
+}
+
+@function tailwindcssVars() {
+  @return "KSM";
 }
