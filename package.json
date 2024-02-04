@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "concurrently \"npm run scss\" \"npm run fs\"",
     "fs": "node five-server.js",
-    "scss": "sass scss:css --watch --style=compressed",
+    "scss": "sass ./asset/scss:./asset/css --watch --style=compressed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
