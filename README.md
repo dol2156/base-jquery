@@ -1,6 +1,8 @@
 # 📌 Summary
-- Title : Untitle
-- Front-Framework : None
+- 프로젝트명 : -
+- 작업기간 : -
+- 담당자 : -
+- Frot-End 사용 : None
 
 
 # 📌 Run Local Test Server Command
@@ -23,8 +25,7 @@ npm run dev
 # 📌 Google Sheet MenuData
 - https://script.google.com/macros/s/AKfycbxAl_1ZIcLkt9x0CNmPgx9sGpdNtmEpvoxqDM0_kMyNQsjv5O1QqdiO8kLnX9OQo1sA/exec
 
-# 📌 Document
-- ooo
+# 📌 Google Share Document
+- https://drive.google.com/drive/folders/1H_Hsk8CIT-XmrToiagJcfvGrmFGGHiJ7?usp=drive_link
 
-# 📌 Design
-- ooo
+
