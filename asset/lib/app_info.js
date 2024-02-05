@@ -1,37 +1,51 @@
 (() => {
-  // URL 의 debug 매개변수 탐지하여 html 에 data-env=dev 설정
+  // URL 의 debug 매개변수 탐지하여 DEBUG 모드 설정
   const queryString = window.location.search;
 
   const urlParams = new URLSearchParams(queryString);
 
   const debug = urlParams.get('debug');
 
-  if (debug || debug == '') {
+  if (debug === 'true') {
+    window.localStorage.setItem('DEBUG', 'true');
+  }
+
+  if (debug === 'false') {
+    window.localStorage.removeItem('DEBUG');
+  }
+
+  const isDebug = window.localStorage.getItem('DEBUG');
+  if (isDebug === 'true') {
     const _html = document.documentElement;
-    _html.setAttribute('data-env', 'dev');
+    
+    // css 에서 사용
+    _html.classList.add('DEBUG');
+    
+    // js 에서 사용
+    window.DEBUG = true;
   }
 })();
 
 window.addEventListener('DOMContentLoaded', (event) => {
   const html = `
-  <div id="AppInfo" class="hidden rounded-[4px] [[data-env='dev']_&]:!flex z-[9999] fixed top-[0] left-1/2 -translate-x-1/2 bg-[rgba(0,0,0,.7)] p-[5px_10px] text-[yellow] text-[12px] font-[400] whitespace-nowrap flex-row items-center justify-center gap-[10px]">
+  <div id="AppInfo" class="hidden rounded-[4px] [html.DEBUG_&]:flex z-[9999] fixed top-[0] left-1/2 -translate-x-1/2 bg-[rgba(0,0,0,.7)] p-[5px_10px] [&_*]:text-[yellow] text-[12px] font-[400] whitespace-nowrap flex-row items-center justify-center gap-[10px]">
     <div>
       <a href="/sitemap.html" class="flex flex-row items-center justify-center gap-[5px]">
         <div>
-          <div class="hidden xs:max-sm:block">Xs</div>
-          <div class="hidden sm:max-md:block">Sm</div>
-          <div class="hidden md:max-lg:block">Md</div>
-          <div class="hidden lg:max-xl:block">Lg</div>
-          <div class="hidden xl:max-2xl:block">Xl</div>
-          <div class="hidden 2xl:max-3xl:block">2Xl</div>
-          <div class="hidden 3xl:block">3Xl</div>
+          <div class="hidden xs:max-sm:!block">Xs</div>
+          <div class="hidden sm:max-md:!block">Sm</div>
+          <div class="hidden md:max-lg:!block">Md</div>
+          <div class="hidden lg:max-xl:!block">Lg</div>
+          <div class="hidden xl:max-2xl:!block">Xl</div>
+          <div class="hidden 2xl:max-3xl:!block">2Xl</div>
+          <div class="hidden 3xl:!block">3Xl</div>
         </div>
         <div>&diamond;</div>
         <div>
-          <div class="hidden max-md:block">휴대폰</div>
-          <div class="hidden md:max-lg:block">태블릿</div>
-          <div class="hidden lg:max-xl:block">랩탑</div>
-          <div class="hidden xl:block">데스크탑</div>
+          <div class="hidden max-md:!block">휴대폰</div>
+          <div class="hidden md:max-lg:!block">태블릿</div>
+          <div class="hidden lg:max-xl:!block">랩탑</div>
+          <div class="hidden xl:!block">데스크탑</div>
         </div>
         <div>&diamond;</div>
         <div class="wid">wid</div>
