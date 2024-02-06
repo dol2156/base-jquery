@@ -21,19 +21,19 @@
 
 /* PC First */
 @mixin 데스크탑_미만() {
-  @media screen and (max-width:#{$BreakPoint_데스크탑 - 1px}) {
+  @media screen and (max-width:#{$BreakPoint_데스크탑 - 0.1px}) {
     @content;
   }
 }
 
 @mixin 랩탑_미만() {
-  @media screen and (max-width:#{$BreakPoint_랩탑 - 1px}) {
+  @media screen and (max-width:#{$BreakPoint_랩탑 - 0.1px}) {
     @content;
   }
 }
 
 @mixin 태블릿_미만() {
-  @media screen and (max-width:#{$BreakPoint_태블릿 - 1px}) {
+  @media screen and (max-width:#{$BreakPoint_태블릿 - 0.1px}) {
     @content;
   }
 }
@@ -43,19 +43,19 @@
 //PC : 랩탑 + 데스크탑
 
 @mixin 휴대폰에서만() {
-  @media screen and (max-width:#{$BreakPoint_태블릿 - 1px}) {
+  @media screen and (max-width:#{$BreakPoint_태블릿 - 0.1px}) {
     @content;
   }
 }
 
 @mixin 태블릿에서만() {
-  @media screen and (min-width:#{$BreakPoint_태블릿}) and (max-width:#{$BreakPoint_랩탑 - 1px}) {
+  @media screen and (min-width:#{$BreakPoint_태블릿}) and (max-width:#{$BreakPoint_랩탑 - 0.1px}) {
     @content;
   }
 }
 
 @mixin 랩탑에서만() {
-  @media screen and (min-width:#{$BreakPoint_랩탑}) and (max-width:#{$BreakPoint_데스크탑 - 1px}) {
+  @media screen and (min-width:#{$BreakPoint_랩탑}) and (max-width:#{$BreakPoint_데스크탑 - 0.1px}) {
     @content;
   }
 }
@@ -67,7 +67,7 @@
 }
 
 @mixin 모바일에서만() {
-  @media screen and (max-width:#{$BreakPoint_랩탑 - 1px}) {
+  @media screen and (max-width:#{$BreakPoint_랩탑 - 0.1px}) {
     @content;
   }
 }

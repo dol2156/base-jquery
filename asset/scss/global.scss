@@ -1,20 +1,36 @@
 @charset 'utf-8';
 @use 'common/' as *;
 :root {
-  font-size: $RootFontSize;
-  @include 휴대폰에서만() {
-    font-size: REM(32px);
+  font-size: 62.5%; // rem 단위를 직관적으로 사용하기 위해 font-size 의 기본 사이즈를 16px 에서 10px 로 변경
+
+  // 모바일( 휴대폰 + 태블릿 ) 에서는 640 디자인 적용
+  @include 모바일에서만() {
+    font-size: calc(#{$RootFontSize} / #{$DesignWidth_Mobile} * 100vw);
   }
 }
 
 body {
   aside {
     outline: 1px dashed red;
-    width: MVW(100px);
-    @include PC에서만() {
-      width: 50%;
-    }
+    width: 10rem;
   }
 }
 
+footer {
+  width: 100%;
+  background-color: #202020;
+  //padding: 100px 40px;
+  padding: 10rem 4rem;
+  .Text1 {
+    color: #777777;
+    font-size: 2.2rem;
+    font-weight: 900;
+  }
 
+  .Text2 {
+    margin-top: 2.9rem;
+    color: #ffffff;
+    font-size: 2.3rem;
+    font-weight: 400;
+  }
+}

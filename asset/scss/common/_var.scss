@@ -1,19 +1,19 @@
-$RootFontSize: 16px;
+$RootFontSize: 10;
 /**/
-$DesignWidth_Mobile: 640px; // 디자인 파일 모바일 버젼 아트보드 너비
-$DesignWidth_PC: 1920px; // 디자인 파일 PC 버젼 아트보드 너비
+$DesignWidth_Mobile: 640; // 디자인 파일 모바일 버젼 아트보드 너비
+$DesignWidth_PC: 1920; // 디자인 파일 PC 버젼 아트보드 너비
 /**/
-$BreakPoint_휴대폰: 320px; // 스마트폰이나 작은 태블릿을 위한 브레이크 포인트입니다.
-$BreakPoint_태블릿: 768px; // 태블릿이나 큰 스마트폰을 위한 브레이크 포인트입니다.
-$BreakPoint_랩탑: 1024px; // 데스크탑 컴퓨터나 태블릿을 위한 브레이크 포인트입니다.
-$BreakPoint_데스크탑: 1280px; // 큰 모니터나 고해상도 디스플레이를 위한 브레이크 포인트입니다.
+$BreakPoint_휴대폰: 320; // 스마트폰이나 작은 태블릿을 위한 브레이크 포인트
+$BreakPoint_태블릿: 768; // 태블릿이나 큰 스마트폰을 위한 브레이크 포인트
+$BreakPoint_랩탑: 1024; // 데스크탑 컴퓨터나 태블릿을 위한 브레이크 포인트
+$BreakPoint_데스크탑: 1280; // 큰 모니터나 고해상도 디스플레이를 위한 브레이크 포인트
 /**/
 :root {
-  --DesignWidth_Mobile: #{$DesignWidth_Mobile};
-  --DesignWidth_PC: #{$DesignWidth_PC};
+  --DesignWidth_Mobile: #{$DesignWidth_Mobile}px;
+  --DesignWidth_PC: #{$DesignWidth_PC}px;
   /**/
-  --BreakPoint_휴대폰: #{$BreakPoint_휴대폰};
-  --BreakPoint_태블릿: #{$BreakPoint_태블릿};
-  --BreakPoint_랩탑: #{$BreakPoint_랩탑};
-  --BreakPoint_데스크탑: #{$BreakPoint_데스크탑};
+  --BreakPoint_휴대폰: #{$BreakPoint_휴대폰}px;
+  --BreakPoint_태블릿: #{$BreakPoint_태블릿}px;
+  --BreakPoint_랩탑: #{$BreakPoint_랩탑}px;
+  --BreakPoint_데스크탑: #{$BreakPoint_데스크탑}px;
 }
