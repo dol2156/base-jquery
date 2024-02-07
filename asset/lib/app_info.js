@@ -17,10 +17,10 @@
   const isDebug = window.localStorage.getItem('DEBUG');
   if (isDebug === 'true') {
     const _html = document.documentElement;
-    
+
     // css 에서 사용
     _html.classList.add('DEBUG');
-    
+
     // js 에서 사용
     window.DEBUG = true;
   }
@@ -60,18 +60,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const UA = UAParser();
 
   const init = () => {
-    (() => {
-      if (document.documentElement.dataset.env == 'development') {
-        const c_label = 'env';
-        const c_label_style =
-          'border:1px solid black; background:#333; color:yellow; padding:0.25em 0.5em; font-size:12px; font-weight:bold;';
-        const c_value = document.documentElement.dataset.env;
-        const c_value_style =
-          'border:1px solid black; background:#ffffd4; color:#333; padding:0.25em 0.5em; font-size:12px; border-left:none;';
-        console.log(`%c${c_label}%c${c_value}`, c_label_style, c_value_style);
-      }
-    })();
-
     infoDeviceOS();
     infoWhellDirection();
     infoOnTouch();
@@ -81,6 +69,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     infoScrollTop();
     infoBreakPoint();
     infoiOSSafeArea();
+    set100VhCssVar();
   };
   init();
 
@@ -266,5 +255,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
         el_html.setAttribute(`data-wheel-direction`, 'down');
       }
     });
+  }
+
+  /**
+   * 100vh 주소창 버그 때문에 CSS 변수 추가 해둠
+   */
+  window.addEventListener('resize', () => {
+    set100VhCssVar();
+  });
+  set100VhCssVar();
+
+  function set100VhCssVar() {
+    const vh = window.innerHeight;
+    document.documentElement.style.setProperty('--vh-100', `${vh}px`);
   }
 });
