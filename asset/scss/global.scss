@@ -27,3 +27,61 @@ footer {
     font-weight: 400;
   }
 }
+//
+/**/
+.TopLeft {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+/**/
+.TopBetween {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+/**/
+.TopRight {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+/**/
+.BottomLeft {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+/**/
+.BottomBetween {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+/**/
+.BottomRight {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+/**/
+.CenterBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CenterCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.CenterLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.CenterRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
