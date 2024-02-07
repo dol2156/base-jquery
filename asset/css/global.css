@@ -115,11 +115,6 @@ strong {
   }
 }
 
-body aside {
-  outline: 1px dashed red;
-  width: 10rem;
-}
-
 footer {
   width: 100%;
   background-color: #202020;
