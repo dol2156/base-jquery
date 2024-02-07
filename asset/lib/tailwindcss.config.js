@@ -4,6 +4,11 @@ tailwind.config = {
   //   preflight: false,
   // },
   theme: {
+    letterSpacing: {
+      25: '0.025em',
+      50: '0.050em',
+      75: '0.075em',
+    },
     screens: {
       xs: '0px',
       sm: '640px',
