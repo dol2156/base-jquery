@@ -481,8 +481,10 @@ Handlebars.render = (template_str, render_data = {}, target_element) => {
   const compiled_template = Handlebars.compile(template_str);
 
   let rendered = compiled_template(render_data);
-  if ($(target_element).length != 0) $(target_element).html(rendered);
-  else Console.error(`target_element == null`, `Handlebars.render`);
+
+  if ($(target_element).length != 0) {
+    $(target_element).replaceWith(rendered);
+  } else Console.error(`target_element == null`, `Handlebars.render`);
 };
 
 /* // 2024-02-08 :: END :: Handlebars */
@@ -508,19 +510,44 @@ Console.error = (msg, label = 'NoLabel') => {
 /* // 2024-02-08 :: END :: Console */
 
 /* 2024-02-08 :: START :: jQuery */
-// $(`#Hbs-ff470abd`).hbs('/page/_parts/layout/header.hbs', data);
-// $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'), data);
+/**
+ * 동기방식 HTML include
+ * @param html_path
+ */
+$.include = function (html_path) {
+  // const _el_script = document.currentScript;
 
-$.ksmconsole = function () {
-  console.log(this);
+  $.ajax({
+    url: html_path,
+    method: 'GET',
+    dataType: 'html',
+    cache: false,
+    async: false,
+    timeout: 60 * 1000,
+    success: function (response, status, xhr) {
+      //console.log("AJAX success : " + url);
+      document.write(response);
+      // _el_script.remove();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log('AJAX error : ' + url);
+      console.log('status : ' + jqXHR.status);
+      console.log('textStatus : ' + textStatus);
+    },
+    complete: function (jqXHR, textStatus) {
+      //console.log("AJAX complete : " + url);
+    },
+  });
 };
-//call : $.ksmconsole();
+// ex - call : $.ksmconsole();
 
 $.fn.extend({
-  hbs: function (template, render_data) {
-    console.log(`this == `, this);
-    
-    console.log(`template == `, typeof template);
+  hbs: function (template, render_data = {}) {
+    if (this.length === 0) {
+      Console.error('Target is Null', '$.hbs');
+      return;
+    }
+    const target_element = this;
 
     let tpl_string = '';
     if (typeof template === 'object') {
@@ -528,11 +555,30 @@ $.fn.extend({
       tpl_string = template.html();
     } else {
       // hbs file path
-      console.log('[helper.js : hbs : 527]');
+      $.ajax({
+        url: template,
+        method: 'GET',
+        dataType: 'html',
+        cache: false,
+        async: false, // 동기식
+        timeout: 60 * 1000,
+        success: function (response, status, xhr) {
+          //console.log("AJAX success : " + url);
+          tpl_string = response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log('AJAX error : ' + url);
+          console.log('status : ' + jqXHR.status);
+          console.log('textStatus : ' + textStatus);
+        },
+        complete: function (jqXHR, textStatus) {
+          //console.log("AJAX complete : " + url);
+        },
+      });
     }
 
-    Handlebars.render(tpl_string, render_data);
+    Handlebars.render(tpl_string, render_data, target_element);
   },
 });
-//call : $('body').ksmalert();
+// ex - call : $('body').ksmalert();
 /* // 2024-02-08 :: END :: jQuery */

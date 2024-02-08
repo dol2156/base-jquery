@@ -5,41 +5,46 @@
     <script src="/asset/lib/handlebars-4.7.8.js"></script>
     <script src="/asset/lib/helper.js"></script>
     <!---->
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <link rel="icon" href="data:," />
-    <title>main.html</title>
-    <!-- common style -->
-    <link href="/asset/css/global.css" rel="stylesheet" />
-    <!-- core -->
-    <script src="/asset/lib/jquery.easing.min.js"></script>
-    <script src="/asset/lib/tailwindcss.min.js"></script>
-    <script src="/asset/lib/tailwindcss.config.js"></script>
-    <!-- appinfo -->
-    <script src="/asset/lib/ua-parser.min.js"></script>
-    <script src="/asset/lib/app_info.js"></script>
+    <script>
+      $.include('/page/_parts/layout/head.hbs');
+    </script>
   </head>
   <body>
     <div id="Page">
-      <script id="Tpl-ff470abd" type="text/x-handlebars-template">
-        {{#EACH array}}
-          <div>
-            {{obj}}
-          </div>
-        {{/EACH}}
-      </script>
       <script>
-        $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'), {
-          array: ['A', 'B', 'C'],
-        });
+        $.include('/page/_parts/layout/header.hbs');
       </script>
-      <div id="Hbs-ff470abd"></div>
-      <aside>ASIDE</aside>
-      <main>page/main.html</main>
-      <footer>footer</footer>
+      <main>
+        <div id="Hbs-ff470abd"></div>
+        <script id="Tpl-ff470abd" type="text/x-handlebars-template">
+          <div class='RR'>
+            {{#EACH (ARR '🍎|🍍|🥝|🍇|🍈')}}
+              <div class='text-[#161616] text-[20px] font-[800]'>
+                {{obj}}
+              </div>
+            {{/EACH}}
+          </div>
+        </script>
+        <script>
+          $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'));
+        </script>
+        <div id="Hbs-7163175a"></div>
+        <script id="Tpl-7163175a" type="text/x-handlebars-template">
+          <div class='RR'>
+            {{#EACH (ARR '🍎|🍍|🥝|🍇|🍈')}}
+              <div class='text-[#161616] text-[20px] font-[800]'>
+                {{obj}}
+              </div>
+            {{/EACH}}
+          </div>
+        </script>
+        <script>
+          $(`#Hbs-7163175a`).hbs($('#Tpl-7163175a'));
+        </script>
+      </main>
+      <script>
+        $.include('/page/_parts/layout/footer.hbs');
+      </script>
     </div>
   </body>
 </html>
