@@ -1,3 +1,4 @@
+/* 2024-02-08 :: START :: Handlebars */
 Handlebars.logger.level = 'debug';
 
 /**
@@ -470,21 +471,68 @@ Handlebars.templateToHTML = (template_file_name, render_data) => {
   });
 };
 
-Handlebars.render = (tpl_id, render_data={}) => {
-
-  const $tpl = $(`#${tpl_id}`);
-
+/**
+ * template_str + render_data 반환
+ * @param tpl_id
+ * @param render_data
+ */
+Handlebars.render = (template_str, render_data = {}, target_element) => {
   //Compile the template
-  const compiled_template = Handlebars.compile($tpl.html());
+  const compiled_template = Handlebars.compile(template_str);
 
   let rendered = compiled_template(render_data);
-  rendered = `
-            <!-- ${tpl_id}-Result :: START ::  -->
-            <div id="${tpl_id}-Result">
-              ${rendered}
-            </div>
-            <!-- // ${tpl_id}-Result :: END ::  -->
-            `;
-
-  $(rendered).insertAfter($tpl);
+  if ($(target_element).length != 0) $(target_element).html(rendered);
+  else Console.error(`target_element == null`, `Handlebars.render`);
 };
+
+/* // 2024-02-08 :: END :: Handlebars */
+
+/* 2024-02-08 :: START :: Console */
+const Console = {};
+Console.log = (msg, label = 'NoLabel') => {
+  const label_style =
+    'border:1px solid black; background:#333; color:yellow; padding:0.25em 0.5em; font-size:12px; font-weight:bold; font-size:16px;';
+  const value_style =
+    'border:1px solid black; background:#ffffd4; color:#333; padding:0.25em 0.5em; font-size:12px; border-left:none; font-size:16px;';
+  console.log(`%c${label}%c${msg}`, label_style, value_style);
+};
+
+Console.error = (msg, label = 'NoLabel') => {
+  const label_style =
+    'border:1px dashed black; background:red; color:white; padding:0.25em 0.5em; font-size:12px; font-weight:bold; font-size:16px;';
+  const value_style =
+    'border:1px dashed black; background:#ffffd4; color:#333; padding:0.25em 0.5em; font-size:12px; border-left:none; font-size:16px;';
+  console.log(`%c${label}%c${msg}`, label_style, value_style);
+};
+
+/* // 2024-02-08 :: END :: Console */
+
+/* 2024-02-08 :: START :: jQuery */
+// $(`#Hbs-ff470abd`).hbs('/page/_parts/layout/header.hbs', data);
+// $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'), data);
+
+$.ksmconsole = function () {
+  console.log(this);
+};
+//call : $.ksmconsole();
+
+$.fn.extend({
+  hbs: function (template, render_data) {
+    console.log(`this == `, this);
+    
+    console.log(`template == `, typeof template);
+
+    let tpl_string = '';
+    if (typeof template === 'object') {
+      // jQuery Obj
+      tpl_string = template.html();
+    } else {
+      // hbs file path
+      console.log('[helper.js : hbs : 527]');
+    }
+
+    Handlebars.render(tpl_string, render_data);
+  },
+});
+//call : $('body').ksmalert();
+/* // 2024-02-08 :: END :: jQuery */

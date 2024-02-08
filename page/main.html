@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="ko">
   <head>
+    <script src="/asset/lib/jquery-3.7.1.min.js"></script>
+    <script src="/asset/lib/handlebars-4.7.8.js"></script>
+    <script src="/asset/lib/helper.js"></script>
+    <!---->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -11,10 +15,7 @@
     <!-- common style -->
     <link href="/asset/css/global.css" rel="stylesheet" />
     <!-- core -->
-    <script src="/asset/lib/jquery-3.7.1.min.js"></script>
     <script src="/asset/lib/jquery.easing.min.js"></script>
-    <script src="/asset/lib/handlebars-4.7.8.js"></script>
-    <script src="/asset/lib/handlebars-helper.js"></script>
     <script src="/asset/lib/tailwindcss.min.js"></script>
     <script src="/asset/lib/tailwindcss.config.js"></script>
     <!-- appinfo -->
@@ -23,15 +24,22 @@
   </head>
   <body>
     <div id="Page">
-      <aside class="RR">ASIDE</aside>
-      <main class="RR">
-        <div class="RR w-[10rem]">font-size : 16px</div>
-      </main>
-      <footer>
-        <div class="Text1" style="font-size: 2.2rem">CONTACT</div>
-        <div class="Text1 text-[2.2rem]">CONTACT</div>
-        <div class="Text2">경북친환경농산물 연합사업단</div>
-      </footer>
+      <script id="Tpl-ff470abd" type="text/x-handlebars-template">
+        {{#EACH array}}
+          <div>
+            {{obj}}
+          </div>
+        {{/EACH}}
+      </script>
+      <script>
+        $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'), {
+          array: ['A', 'B', 'C'],
+        });
+      </script>
+      <div id="Hbs-ff470abd"></div>
+      <aside>ASIDE</aside>
+      <main>page/main.html</main>
+      <footer>footer</footer>
     </div>
   </body>
 </html>

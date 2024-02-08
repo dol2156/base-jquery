@@ -115,21 +115,71 @@ strong {
   }
 }
 
-footer {
-  width: 100%;
-  background-color: #202020;
-  padding: 10rem 4rem;
+/**/
+.TopLeft {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-footer .Text1 {
-  color: #777777;
-  font-size: 2.2rem;
-  font-weight: 900;
+
+/**/
+.TopBetween {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-footer .Text2 {
-  margin-top: 2.9rem;
-  color: #ffffff;
-  font-size: 2.3rem;
-  font-weight: 400;
+
+/**/
+.TopRight {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+/**/
+.BottomLeft {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/**/
+.BottomBetween {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/**/
+.BottomRight {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/**/
+.CenterBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CenterCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CenterLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.CenterRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /*# sourceMappingURL=global.css.map */
