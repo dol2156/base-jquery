@@ -1,7 +1,4 @@
 @use 'common/' as *;
-body {
-  background-color: green;
-}
 //
 header {
   background-color: white;
@@ -106,7 +103,7 @@ header {
     }
   }
 
-  &.Active {
+  &.On {
     > span {
       transform: translateY(calc(-1 * var(--bar-width) / 2)) rotate(45deg);
     }
