@@ -126,6 +126,10 @@ html[data-scroll-top-first-section-over=true] header.TransparentMode {
   background-color: white;
 }
 
+header.TransparentMode ~ main {
+  margin-top: calc(-1 * var(--header-hei));
+}
+
 /**/
 .HamBtn {
   outline: 1px dashed red;

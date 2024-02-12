@@ -21,12 +21,19 @@ header {
   &.TransparentMode {
     background-color: transparent;
     @at-root {
+      // 헤더 높이 만큼 스크롤이 내려갔을때
       //html[data-scroll-top-header-over='true'] & {
       //  background-color: white;
       //}
+      
+      // 첫번째 섹션 만큼 스크롤이 내려갔을때
       html[data-scroll-top-first-section-over='true'] & {
         background-color: white;
       }
+    }
+
+    ~ main {
+      margin-top: calc(-1 * var(--header-hei));
     }
   }
 }
