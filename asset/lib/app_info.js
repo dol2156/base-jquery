@@ -103,7 +103,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     function update() {
       const st = window.pageYOffset || document.documentElement.scrollTop;
-      el_html.setAttribute('data-scroll-top', st);
+      el_html.setAttribute('data-scroll-top', Math.round(st));
+
+      const header_hei = document.querySelector(`#Header`).clientHeight;
+
+      let is_header_over = st >= header_hei ? true : false;
+      el_html.setAttribute('data-scroll-top-header-over', is_header_over);
+
+      let is_first_section_over =
+        st >= window.innerHeight - header_hei ? true : false;
+      el_html.setAttribute(
+        'data-scroll-top-first-section-over',
+        is_first_section_over,
+      );
     }
 
     update();
