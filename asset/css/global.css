@@ -4,7 +4,7 @@
 }
 @media screen and (min-width: 1024px) {
   :root {
-    font-size: calc(10 / 1920 * 100vw);
+    font-size: calc(10 / 1630 * 100vw);
   }
 }
 @media screen and (min-width: 1630px) {
@@ -102,6 +102,9 @@ html.DEBUG .RR {
 html.DEBUG .RRR > * {
   outline: 1px dashed blue !important;
 }
+html.DEBUG .RRR2 > * {
+  outline: 1px dashed yellow !important;
+}
 
 :root {
   /**/
@@ -111,6 +114,22 @@ html.DEBUG .RRR > * {
   :root {
     --side-padding: 7.5rem;
   }
+}
+
+/**/
+section {
+  outline: 1px dashed red;
+}
+@media screen and (min-width: 1024px) {
+  section {
+    max-width: 1630px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+section > .Inner {
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
 }
 
 /**/
@@ -181,9 +200,42 @@ html.DEBUG .RRR > * {
 }
 
 /**/
-section > .Inner {
-  padding-left: var(--side-padding);
-  padding-right: var(--side-padding);
+footer .Info-9a5abdc4 {
+  color: #ffffff;
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+@media screen and (min-width: 1024px) {
+  footer .Info-9a5abdc4 {
+    gap: 2rem;
+  }
+}
+footer .Info-9a5abdc4 > li {
+  position: relative;
+}
+footer .Info-9a5abdc4 > li + li:before {
+  background-color: red;
+  width: 0.1rem;
+  background-color: #d1d1d1;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  content: "";
+  position: absolute;
+  z-index: 3;
+  background-position: center;
+  height: 2.3rem;
+  left: -0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  footer .Info-9a5abdc4 > li + li:before {
+    height: 1.5rem;
+    left: -1rem;
+  }
 }
 
 /*# sourceMappingURL=global.css.map */

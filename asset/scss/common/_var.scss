@@ -22,6 +22,7 @@ $PCDesignPoint: 1024;
 // ex) 1920 - 145 - 145 = 1630
 $PCSidePadding: 145;
 $NonScalePoint: calc($PCDesignWidth - ($PCSidePadding * 2));
+@debug '$NonScalePoint ====> #{$NonScalePoint}';
 
 @mixin PC() {
   @media screen and (min-width: #{$PCDesignPoint}px) {
@@ -34,12 +35,10 @@ $NonScalePoint: calc($PCDesignWidth - ($PCSidePadding * 2));
   font-size: calc(#{$RootFontSize} / #{$CellPhoneDesignWidth} * 100vw);
 
   @include PC() {
-    font-size: calc(#{$RootFontSize} / #{$PCDesignWidth} * 100vw);
+    font-size: calc(#{$RootFontSize} / #{$NonScalePoint} * 100vw);
   }
 
   @media screen and (min-width:#{$NonScalePoint}px) {
     font-size: 62.5%;
   }
 }
-
-
