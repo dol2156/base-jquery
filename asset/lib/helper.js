@@ -510,38 +510,12 @@ Console.error = (msg, label = 'NoLabel') => {
 /* // 2024-02-08 :: END :: Console */
 
 /* 2024-02-08 :: START :: jQuery */
-/**
- * 동기방식 HTML include
- * @param html_path
- */
-$.include = function (html_path) {
-  // const _el_script = document.currentScript;
-
-  $.ajax({
-    url: html_path,
-    method: 'GET',
-    dataType: 'html',
-    cache: false,
-    async: false,
-    timeout: 60 * 1000,
-    success: function (response, status, xhr) {
-      //console.log("AJAX success : " + url);
-      document.write(response);
-      // _el_script.remove();
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log('AJAX error : ' + url);
-      console.log('status : ' + jqXHR.status);
-      console.log('textStatus : ' + textStatus);
-    },
-    complete: function (jqXHR, textStatus) {
-      //console.log("AJAX complete : " + url);
-    },
-  });
-};
-// ex - call : $.ksmconsole();
-
 $.fn.extend({
+  /**
+   * 동기 방식 Handlebars 렌더링
+   * @param template
+   * @param render_data
+   */
   hbs: function (template, render_data = {}) {
     if (this.length === 0) {
       Console.error('Target is Null', '$.hbs');
