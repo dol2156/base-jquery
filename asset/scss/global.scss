@@ -1,11 +1,16 @@
 @charset 'utf-8';
 @use 'common/' as *;
 :root {
-  font-size: 62.5%; // rem 단위를 직관적으로 사용하기 위해 font-size 의 기본 사이즈를 16px 에서 10px 로 변경
+  // Cell Phone
+  font-size: calc(#{$RootFontSize} / #{$CellPhoneDesignWidth} * 100vw);
 
-  // 모바일( 휴대폰 + 태블릿 ) 에서는 640 디자인 적용
-  @include 모바일에서만() {
-    font-size: calc(#{$RootFontSize} / #{$DesignWidth_Mobile} * 100vw);
+  @include TBH() {
+    font-size: calc(#{$RootFontSize} / #{$PCDesignWidth} * 100vw);
+  }
+
+  @include PC() {
+    // rem 단위를 직관적으로 사용하기 위해 font-size 의 기본 사이즈를 16px 에서 10px 로 변경
+    font-size: 62.5%;
   }
 }
 //
@@ -65,4 +70,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+/**/
+section {
+  > .Inner {
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+  }
 }

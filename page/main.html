@@ -12,19 +12,23 @@
         Include(`/page/_parts/layout/header.hbs`);
       </script>
       <main>
-        <div id="Hbs-ff470abd"></div>
-        <script id="Tpl-ff470abd" type="text/x-handlebars-template">
-          <div class='RR'>
-            {{#EACH (ARR '🍎|🍍|🥝|🍇|🍈')}}
-              <div class='text-[#161616] text-[20px] font-[800]'>
-                {{obj}}
+        <section>
+          <div class="Inner">
+            <div id="Hbs-ff470abd"></div>
+            <script id="Tpl-ff470abd" type="text/x-handlebars-template">
+              <div class='RR'>
+                {{#EACH (ARR '🍎|🍍|🥝|🍇|🍈')}}
+                  <div class='text-[#161616] text-[20px] font-[800]'>
+                    {{obj}}
+                  </div>
+                {{/EACH}}
               </div>
-            {{/EACH}}
+            </script>
+            <script>
+              $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'));
+            </script>
           </div>
-        </script>
-        <script>
-          $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'));
-        </script>
+        </section>
       </main>
       <script>
         Include(`/page/_parts/layout/footer.hbs`);

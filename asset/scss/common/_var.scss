@@ -1,19 +1,41 @@
+/*
+ * ⭐ Cell Phone First ⭐
+ * CP (Cell Phone) : 0 ~ 768
+ * TBH (Tablet Horizontal) : 769 ~ 1779
+ * PC : 1780 ~
+ * ※ PC 디자인 너비 - 좌측 패딩 - 우측 패딩 = PC 브레이크 포인트
+ * ※ 1920 - 70 - 70 = 1780
+**/
+//
 $RootFontSize: 10;
-/**/
-$DesignWidth_Mobile: 640; // 디자인 파일 모바일 버젼 아트보드 너비
-$DesignWidth_PC: 1920; // 디자인 파일 PC 버젼 아트보드 너비
-/**/
-$BreakPoint_휴대폰: 320; // 스마트폰이나 작은 태블릿을 위한 브레이크 포인트
-$BreakPoint_태블릿: 768; // 태블릿이나 큰 스마트폰을 위한 브레이크 포인트
-$BreakPoint_랩탑: 1024; // 데스크탑 컴퓨터나 태블릿을 위한 브레이크 포인트
-$BreakPoint_데스크탑: 1280; // 큰 모니터나 고해상도 디스플레이를 위한 브레이크 포인트
-/**/
+//
+$CellPhoneDesignWidth: 640; // 디자인 파일 모바일 버젼 아트보드 너비
+$PCDesignWidth: 1920; // 디자인 파일 PC 버젼 아트보드 너비
+//
+$PCSidePadding: 70;
+$BreakPoint_TBH: 769;
+$BreakPoint_PC: calc($PCDesignWidth - $PCSidePadding - $PCSidePadding);
+
+// Tablet Horizontal
+@mixin TBH() {
+  /* TB - 769px 이상 화면 - Tablet 디자인이 없다면 PC 디자인 적용 */
+  @media screen and (min-width: #{$BreakPoint_TBH}px) {
+    @content;
+  }
+}
+
+// PC
+@mixin PC() {
+  /* PC - 1780px 이상 화면 - PC 디자인 적용*/
+  @media screen and (min-width: #{$BreakPoint_PC}px) {
+    @content;
+  }
+}
+//
 :root {
-  --DesignWidth_Mobile: #{$DesignWidth_Mobile}px;
-  --DesignWidth_PC: #{$DesignWidth_PC}px;
   /**/
-  --BreakPoint_휴대폰: #{$BreakPoint_휴대폰}px;
-  --BreakPoint_태블릿: #{$BreakPoint_태블릿}px;
-  --BreakPoint_랩탑: #{$BreakPoint_랩탑}px;
-  --BreakPoint_데스크탑: #{$BreakPoint_데스크탑}px;
+  --side-padding: 4rem;
+  @include TBH() {
+    --side-padding: 7.5rem;
+  }
 }
