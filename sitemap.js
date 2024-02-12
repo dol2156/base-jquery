@@ -9,9 +9,8 @@ $(function () {
   });
 
   function init() {
-    console.log('[sitemap.html : init : 60]');
-    Handlebars.render('Tpl-2e300913', {
-      MENU_DATA: MENU_DATA,
+    $(`#Hbs-2e300913`).hbs($(`#Tpl-2e300913`), {
+      MENU_DATA,
     });
   }
 });

@@ -477,10 +477,13 @@ Handlebars.templateToHTML = (template_file_name, render_data) => {
  * @param render_data
  */
 Handlebars.render = (template_str, render_data = {}, target_element) => {
+  console.log(`render_data == `, render_data);
+  
   //Compile the template
   const compiled_template = Handlebars.compile(template_str);
 
   let rendered = compiled_template(render_data);
+  console.log(`rendered == `, rendered);
 
   if ($(target_element).length != 0) {
     $(target_element).replaceWith(rendered);
@@ -515,6 +518,10 @@ $.fn.extend({
    * 동기 방식 Handlebars 렌더링
    * @param template
    * @param render_data
+   * ex)
+   * $(`#Hbs-2e300913`).hbs($(`#Tpl-2e300913`), {
+   *   MENU_DATA,
+   * });
    */
   hbs: function (template, render_data = {}) {
     if (this.length === 0) {
@@ -551,6 +558,8 @@ $.fn.extend({
       });
     }
 
+    console.log(`tpl_string == `, tpl_string);
+    
     Handlebars.render(tpl_string, render_data, target_element);
   },
 });
