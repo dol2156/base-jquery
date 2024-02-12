@@ -21,6 +21,23 @@
         </section>
         <section>
           <div class="Inner">
+            <style>
+              .box {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+              }
+            </style>
+            <div class="box"></div>
+            <script>
+              // GSAP을 사용하여 애니메이션 적용
+              gsap.to('.box', {
+                duration: 2,
+                x: 200,
+                rotation: 360,
+                scale: 1.5,
+              });
+            </script>
             <div class="Inner-2">
               <div class="Title-2f456bd8">사업단 소개</div>
             </div>
