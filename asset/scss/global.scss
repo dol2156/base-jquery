@@ -1,5 +1,13 @@
 @charset 'utf-8';
 @use 'common/' as *;
+//
+:root {
+  /**/
+  --side-padding: 4rem;
+  @include PC() {
+    --side-padding: 7.5rem;
+  }
+}
 /**/
 .TopLeft {
   display: flex;

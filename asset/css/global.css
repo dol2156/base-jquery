@@ -14,16 +14,6 @@
 }
 
 :root {
-  /**/
-  --side-padding: 4rem;
-}
-@media screen and (min-width: 1024px) {
-  :root {
-    --side-padding: 7.5rem;
-  }
-}
-
-:root {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   cursor: default;
@@ -111,6 +101,16 @@ html.DEBUG .RR {
 }
 html.DEBUG .RRR > * {
   outline: 1px dashed blue !important;
+}
+
+:root {
+  /**/
+  --side-padding: 4rem;
+}
+@media screen and (min-width: 1024px) {
+  :root {
+    --side-padding: 7.5rem;
+  }
 }
 
 /**/
