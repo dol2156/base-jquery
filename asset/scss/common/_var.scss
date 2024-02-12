@@ -1,41 +1,55 @@
-/*
- * ⭐ Cell Phone First ⭐
- * CP (Cell Phone) : 0 ~ 768
- * TBH (Tablet Horizontal) : 769 ~ 1779
- * PC : 1780 ~
- * ※ PC 디자인 너비 - 좌측 패딩 - 우측 패딩 = PC 브레이크 포인트
- * ※ 1920 - 70 - 70 = 1780
-**/
-//
+// ⭐ Cell Phone First ⭐
+// 브라우져 베이스 폰트 사이즈 지정
+// rem 단위를 직관적으로 사용하기 위해 font-size 의 기본 사이즈를 16px 에서 10px 로 변경
 $RootFontSize: 10;
-//
-$CellPhoneDesignWidth: 640; // 디자인 파일 모바일 버젼 아트보드 너비
-$PCDesignWidth: 1920; // 디자인 파일 PC 버젼 아트보드 너비
-//
-$PCSidePadding: 70;
-$BreakPoint_TBH: 769;
-$BreakPoint_PC: calc($PCDesignWidth - $PCSidePadding - $PCSidePadding);
 
-// Tablet Horizontal
-@mixin TBH() {
-  /* TB - 769px 이상 화면 - Tablet 디자인이 없다면 PC 디자인 적용 */
-  @media screen and (min-width: #{$BreakPoint_TBH}px) {
-    @content;
-  }
-}
+// 디자인이 Mobile(640) & PC(1920) 총 2벌이 제공 될 경우 아래 2가지 구성으로 진행한다
+// Tablet Horizontal 는 대응 하지 않는다.
+// 1. Mobile : Cell Phone & Tablet Vertical
+// 2. Pc : Laptop & Desktop
 
-// PC
+// 모바일 버젼 디자인 아트보드 너비
+$CellPhoneDesignWidth: 640;
+
+// PC 버젼 디자인 아트보드 너비
+$PCDesignWidth: 1920;
+
+// PC 버젼 디자인이 보이기 시작하는 너비
+$PCDesignPoint: 1280;
+
+// 스케일 방식을 버리고 1:1 비율로 보여지기 시작하는 너비
+// PC 디자인 너비 - 좌측 패딩 - 우측 패딩
+// ex) 1920 - 145 - 145 = 1630
+$PCSidePadding: 145;
+$NonScalePoint: calc($PCDesignWidth - ($PCSidePadding * 2));
+
 @mixin PC() {
-  /* PC - 1780px 이상 화면 - PC 디자인 적용*/
-  @media screen and (min-width: #{$BreakPoint_PC}px) {
+  //@media screen and (min-width: #{$PCDesignPoint}px) {
+  //  @content;
+  //}
+  @media screen and (min-width: 1024px) {
     @content;
   }
 }
+
+// viewport 스케일링
+:root {
+  font-size: calc(#{$RootFontSize} / #{$CellPhoneDesignWidth} * 100vw);
+
+  @include PC() {
+    font-size: calc(#{$RootFontSize} / #{$PCDesignWidth} * 100vw);
+  }
+
+  @media screen and (min-width:#{$NonScalePoint}px) {
+    font-size: 62.5%;
+  }
+}
+
 //
 :root {
   /**/
   --side-padding: 4rem;
-  @include TBH() {
+  @include PC() {
     --side-padding: 7.5rem;
   }
 }

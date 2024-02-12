@@ -1,18 +1,23 @@
 @charset "UTF-8";
-/*
- * ⭐ Cell Phone First ⭐
- * CP (Cell Phone) : 0 ~ 768
- * TBH (Tablet Horizontal) : 769 ~ 1779
- * PC : 1780 ~
- * ※ PC 디자인 너비 - 좌측 패딩 - 우측 패딩 = PC 브레이크 포인트
- * ※ 1920 - 70 - 70 = 1780
-**/
+:root {
+  font-size: calc(10 / 640 * 100vw);
+}
+@media screen and (min-width: 1024px) {
+  :root {
+    font-size: calc(10 / 1920 * 100vw);
+  }
+}
+@media screen and (min-width: 1630px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+
 :root {
   /**/
   --side-padding: 4rem;
-  /* TB - 769px 이상 화면 - Tablet 디자인이 없다면 PC 디자인 적용 */
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
   :root {
     --side-padding: 7.5rem;
   }
@@ -106,22 +111,6 @@ html.DEBUG .RR {
 }
 html.DEBUG .RRR > * {
   outline: 1px dashed blue !important;
-}
-
-:root {
-  font-size: calc(10 / 640 * 100vw);
-  /* TB - 769px 이상 화면 - Tablet 디자인이 없다면 PC 디자인 적용 */
-  /* PC - 1780px 이상 화면 - PC 디자인 적용*/
-}
-@media screen and (min-width: 769px) {
-  :root {
-    font-size: calc(10 / 1920 * 100vw);
-  }
-}
-@media screen and (min-width: 1780px) {
-  :root {
-    font-size: 62.5%;
-  }
 }
 
 /**/
