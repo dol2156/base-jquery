@@ -6,8 +6,10 @@
   --header-hei: 12rem;
   /**/
   --side-padding: 4rem;
+  --side-padding-2: 0;
   @include PC() {
-    --side-padding: 14.5rem;
+    --side-padding: 7rem;
+    --side-padding-2: 7.5rem;
   }
 }
 html,
@@ -19,14 +21,17 @@ section {
   outline: 1px dashed red;
 
   @include PC() {
-    max-width: #{$NonScalePoint}px;
-    margin-left: auto;
-    margin-right: auto;
+    //max-width: #{$NonScalePoint}px;
   }
 
   > .Inner {
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
+
+    > .Inner-2 {
+      padding-left: var(--side-padding-2);
+      padding-right: var(--side-padding-2);
+    }
   }
 }
 /**/
