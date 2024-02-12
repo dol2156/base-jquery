@@ -14,9 +14,19 @@
       <main>
         <section>
           <div class="Inner">
-            <div class="Title-2f456bd8">
-              사업단 소개
-            </div>
+            <div id="Hbs-ff470abd"></div>
+            <script id="Tpl-ff470abd" type="text/x-handlebars-template">
+              <div class='RR'>
+                {{#EACH (ARR '🍎|🍍|🥝|🍇|🍈')}}
+                  <div class='text-[#161616] text-[20px] font-[800]'>
+                    {{obj}}
+                  </div>
+                {{/EACH}}
+              </div>
+            </script>
+            <script>
+              $(`#Hbs-ff470abd`).hbs($('#Tpl-ff470abd'));
+            </script>
           </div>
         </section>
       </main>

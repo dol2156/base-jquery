@@ -106,6 +106,119 @@ html.DEBUG .RRR2 > * {
   outline: 1px dashed yellow !important;
 }
 
+/**/
+.HamBtn {
+  outline: 1px dashed red;
+  width: 6.47rem;
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.83rem;
+}
+.HamBtn > span {
+  display: block;
+  width: 100%;
+  height: 0.416rem;
+  background-color: black;
+  border-radius: 0.208rem;
+  transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: auto;
+}
+.HamBtn > span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+/**/
+.HamburgerBtn {
+  outline: 1px dashed red;
+  --bar-width: 0.4rem;
+  --bar-gap: 0.4em;
+  width: 6.4rem;
+  height: 6.4rem;
+  position: relative;
+  cursor: pointer;
+}
+.HamburgerBtn > span {
+  width: 100%;
+  height: var(--bar-width);
+  background-color: #000;
+  border-radius: calc(var(--bar-width) / 2);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: auto;
+}
+.HamburgerBtn > span::before, .HamburgerBtn > span::after {
+  content: "";
+  width: 100%;
+  height: var(--bar-width);
+  background-color: #000;
+  border-radius: calc(var(--bar-width) / 2);
+  position: absolute;
+  transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: auto;
+}
+.HamburgerBtn > span::before {
+  top: calc(var(--bar-width) * -1 - var(--bar-gap));
+}
+.HamburgerBtn > span::after {
+  top: calc(var(--bar-width) + var(--bar-gap));
+}
+.HamburgerBtn.Active > span {
+  transform: translateY(calc(-1 * var(--bar-width) / 2)) rotate(45deg);
+}
+.HamburgerBtn.Active > span::before {
+  transform: rotate(90deg);
+  top: 0;
+}
+.HamburgerBtn.Active > span::after {
+  opacity: 0;
+  top: 0;
+}
+
+footer .Info-9a5abdc4 {
+  color: #ffffff;
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+@media screen and (min-width: 1024px) {
+  footer .Info-9a5abdc4 {
+    gap: 2rem;
+  }
+}
+footer .Info-9a5abdc4 > li {
+  position: relative;
+}
+footer .Info-9a5abdc4 > li + li:before {
+  background-color: red;
+  width: 0.1rem;
+  background-color: #d1d1d1;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  content: "";
+  position: absolute;
+  z-index: 3;
+  background-position: center;
+  height: 2.3rem;
+  left: -0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  footer .Info-9a5abdc4 > li + li:before {
+    height: 1.5rem;
+    left: -1rem;
+  }
+}
+
 :root {
   --header-hei: 12rem;
   /**/
@@ -115,6 +228,11 @@ html.DEBUG .RRR2 > * {
   :root {
     --side-padding: 14.5rem;
   }
+}
+
+html,
+body {
+  font-family: "Pretendard Variable", sans-serif;
 }
 
 /**/
@@ -201,117 +319,11 @@ section > .Inner {
 }
 
 /**/
-.HamBtn {
-  outline: 1px dashed red;
-  width: 6.47rem;
-  aspect-ratio: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.83rem;
-}
-.HamBtn > span {
-  display: block;
-  width: 100%;
-  height: 0.416rem;
-  background-color: black;
-  border-radius: 0.208rem;
-  transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
-  will-change: auto;
-}
-.HamBtn > span:nth-child(1) {
-  transform: rotate(45deg);
-}
-
-/**/
-.HamburgerBtn {
-  outline: 1px dashed red;
-  --bar-width: 0.4rem;
-  --bar-gap: 0.4em;
-  width: 6.4rem;
-  height: 6.4rem;
-  position: relative;
-  cursor: pointer;
-}
-.HamburgerBtn > span {
-  width: 100%;
-  height: var(--bar-width);
-  background-color: #000;
-  border-radius: calc(var(--bar-width) / 2);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
-  will-change: auto;
-}
-.HamburgerBtn > span::before, .HamburgerBtn > span::after {
-  content: "";
-  width: 100%;
-  height: var(--bar-width);
-  background-color: #000;
-  border-radius: calc(var(--bar-width) / 2);
-  position: absolute;
-  transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
-  will-change: auto;
-}
-.HamburgerBtn > span::before {
-  top: calc(var(--bar-width) * -1 - var(--bar-gap));
-}
-.HamburgerBtn > span::after {
-  top: calc(var(--bar-width) + var(--bar-gap));
-}
-.HamburgerBtn.Active > span {
-  transform: translateY(calc(-1 * var(--bar-width) / 2)) rotate(45deg);
-}
-.HamburgerBtn.Active > span::before {
-  transform: rotate(90deg);
-  top: 0;
-}
-.HamburgerBtn.Active > span::after {
-  opacity: 0;
-  top: 0;
-}
-
-/**/
-footer .Info-9a5abdc4 {
-  color: #ffffff;
-  font-size: 2.3rem;
-  font-weight: 400;
-  line-height: 2.8rem;
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-}
-@media screen and (min-width: 1024px) {
-  footer .Info-9a5abdc4 {
-    gap: 2rem;
-  }
-}
-footer .Info-9a5abdc4 > li {
-  position: relative;
-}
-footer .Info-9a5abdc4 > li + li:before {
-  background-color: red;
-  width: 0.1rem;
-  background-color: #d1d1d1;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
-  content: "";
-  position: absolute;
-  z-index: 3;
-  background-position: center;
-  height: 2.3rem;
-  left: -0.8rem;
-}
-@media screen and (min-width: 1024px) {
-  footer .Info-9a5abdc4 > li + li:before {
-    height: 1.5rem;
-    left: -1rem;
-  }
+.Title-2f456bd8 {
+  color: #656565;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 2.9rem;
 }
 
 /*# sourceMappingURL=global.css.map */
