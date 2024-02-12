@@ -24,6 +24,7 @@ $PCSidePadding: 145;
 $NonScalePoint: calc($PCDesignWidth - ($PCSidePadding * 2));
 @debug '$NonScalePoint ====> #{$NonScalePoint}';
 
+// PC 버젼 디자인 적용 분기
 @mixin PC() {
   @media screen and (min-width: #{$PCDesignPoint}px) {
     @content;
