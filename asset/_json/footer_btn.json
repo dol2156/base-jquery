@@ -1,0 +1,22 @@
+[
+  {
+    "아이콘": "/asset/img/footer/ico_home.svg",
+    "라벨": "홈"
+  },
+  {
+    "아이콘": "/asset/img/footer/ico_series.svg",
+    "라벨": "시리즈"
+  },
+  {
+    "아이콘": "/asset/img/footer/ico_search.svg",
+    "라벨": "검색"
+  },
+  {
+    "아이콘": "/asset/img/footer/ico_bookmark.svg",
+    "라벨": "북마크"
+  },
+  {
+    "아이콘": "/asset/img/footer/ico_user.svg",
+    "라벨": "마이리본"
+  }
+]

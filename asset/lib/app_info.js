@@ -219,15 +219,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     function update() {
       const wid = window.innerWidth;
-      let prefix = '';
-      if (wid < 640) prefix = 'xs';
-      if (640 <= wid && wid < 768) prefix = 'sm';
-      if (768 <= wid && wid < 1024) prefix = 'md';
-      if (1024 <= wid && wid < 1280) prefix = 'lg';
-      if (1280 <= wid && wid < 1536) prefix = 'xl';
-      if (1536 <= wid && wid < 1800) prefix = '2xl';
-      if (1800 <= wid) prefix = '3xl';
-      el_html.setAttribute(`data-app-breakpoint`, prefix);
 
       const el_wid = document.querySelector(`#AppInfo .wid`);
       el_wid.textContent = wid;

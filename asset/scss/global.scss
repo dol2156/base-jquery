@@ -3,13 +3,12 @@
 @use 'header';
 @use 'footer';
 :root {
-  --header-hei: 12rem;
+  --header-hei: 7.6rem;
+  --footer-hei: 8.3rem;
   /**/
-  --side-padding: 4rem;
-  --side-padding-2: 0;
+  --side-padding: 2rem;
   @include PC() {
     --side-padding: 7rem;
-    --side-padding-2: 7.5rem;
   }
 }
 html,

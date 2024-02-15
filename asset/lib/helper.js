@@ -477,13 +477,11 @@ Handlebars.templateToHTML = (template_file_name, render_data) => {
  * @param render_data
  */
 Handlebars.render = (template_str, render_data = {}, target_element) => {
-  console.log(`render_data == `, render_data);
-  
+
   //Compile the template
   const compiled_template = Handlebars.compile(template_str);
 
   let rendered = compiled_template(render_data);
-  console.log(`rendered == `, rendered);
 
   if ($(target_element).length != 0) {
     $(target_element).replaceWith(rendered);
@@ -512,56 +510,3 @@ Console.error = (msg, label = 'NoLabel') => {
 
 /* // 2024-02-08 :: END :: Console */
 
-/* 2024-02-08 :: START :: jQuery */
-$.fn.extend({
-  /**
-   * 동기 방식 Handlebars 렌더링
-   * @param template
-   * @param render_data
-   * ex)
-   * $(`#Hbs-2e300913`).hbs($(`#Tpl-2e300913`), {
-   *   MENU_DATA,
-   * });
-   */
-  hbs: function (template, render_data = {}) {
-    if (this.length === 0) {
-      Console.error('Target is Null', '$.hbs');
-      return;
-    }
-    const target_element = this;
-
-    let tpl_string = '';
-    if (typeof template === 'object') {
-      // jQuery Obj
-      tpl_string = template.html();
-    } else {
-      // hbs file path
-      $.ajax({
-        url: template,
-        method: 'GET',
-        dataType: 'html',
-        cache: false,
-        async: false, // 동기식
-        timeout: 60 * 1000,
-        success: function (response, status, xhr) {
-          //console.log("AJAX success : " + url);
-          tpl_string = response;
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-          console.log('AJAX error : ' + url);
-          console.log('status : ' + jqXHR.status);
-          console.log('textStatus : ' + textStatus);
-        },
-        complete: function (jqXHR, textStatus) {
-          //console.log("AJAX complete : " + url);
-        },
-      });
-    }
-
-    console.log(`tpl_string == `, tpl_string);
-    
-    Handlebars.render(tpl_string, render_data, target_element);
-  },
-});
-// ex - call : $('body').ksmalert();
-/* // 2024-02-08 :: END :: jQuery */

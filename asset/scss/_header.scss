@@ -1,21 +1,21 @@
 @use 'common/' as *;
 //
-#Page {
-  > header {
+body {
+  #Page > header {
     background-color: white;
     transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
     will-change: auto;
   }
 
   &.StickyHeader {
-    > header {
+    #Page > header {
       position: sticky;
       top: 0;
     }
   }
 
   &.AutoHideHeader {
-    > header {
+    #Page > header {
       @at-root {
         html[data-scroll-top-header-over='true'][data-scroll-diretion='down']
           & {
@@ -26,7 +26,7 @@
   }
 
   &.TransparentHeader {
-    > header {
+    #Page > header {
       background-color: transparent;
       @at-root {
         // 헤더 높이 만큼 스크롤이 내려갔을때
@@ -40,7 +40,7 @@
         }
       }
 
-      > main {
+      #Page > main {
         margin-top: calc(-1 * var(--header-hei));
       }
     }
@@ -51,24 +51,24 @@
 .HamburgerBtn {
   outline: 1px dashed red;
 
-  --bar-width: 0.4rem;
-  --bar-gap: 0.4em;
+  --bar-width: 0.3rem;
+  --bar-gap: 0.35em;
 
-  width: 6.4rem;
-  height: 6.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
 
   position: relative;
   cursor: pointer;
 
   > span {
-    width: 100%;
+    width: 1.9rem;
     height: var(--bar-width);
     background-color: #000;
     border-radius: calc(var(--bar-width) / 2);
     position: absolute;
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     transition: all 300ms cubic-bezier(0.33, 1, 0.68, 1);
     will-change: auto;
 
@@ -95,7 +95,8 @@
 
   &.On {
     > span {
-      transform: translateY(calc(-1 * var(--bar-width) / 2)) rotate(45deg);
+      transform: translateX(-50%) translateY(calc(-1 * var(--bar-width) / 2))
+        rotate(45deg);
     }
 
     > span::before {
