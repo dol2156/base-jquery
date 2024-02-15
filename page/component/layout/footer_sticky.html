@@ -1,0 +1,37 @@
+<footer
+  id="Footer"
+  class="bg-white h-[--footer-hei] border-t-[2px] border-t-[#18191F]"
+>
+  <section class="h-full">
+    <div class="Inner h-full">
+      <article class="h-full flex flex-row items-center justify-center">
+        <script type="text/x-handlebars-template">
+          {{#EACH this}}
+            <button class='flex-1'>
+              <div class='text-center'>
+                <div class='CenterCenter w-[3.0rem] aspect-square mx-auto'>
+                  <img
+                    class='w-[3.0rem] aspect-square'
+                    src='{{obj.아이콘}}'
+                    alt=''
+                  />
+                </div>
+                <div
+                  class='mt-[0.5rem] text-[#18191F] text-[1.4rem] font-[800]'
+                >
+                  {{obj.라벨}}
+                </div>
+              </div>
+            </button>
+          {{/EACH}}
+        </script>
+        <script>
+          const json = Ajax.getSync('/asset/_json/footer_btn.json');
+          console.log(`json == `, json);
+          
+          Handlebars.write(json);
+        </script>
+      </article>
+    </div>
+  </section>
+</footer>

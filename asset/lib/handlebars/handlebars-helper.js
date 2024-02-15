@@ -476,37 +476,36 @@ Handlebars.templateToHTML = (template_file_name, render_data) => {
  * @param tpl_id
  * @param render_data
  */
-Handlebars.render = (template_str, render_data = {}, target_element) => {
+Handlebars.write = (render_data = {}, $tpl = null) => {
+  const current_script = document.currentScript;
+
+  let $template;
+  if ($tpl) {
+    $template = $tpl;
+  } else {
+    $template = $(current_script).prev(
+      'script[type="text/x-handlebars-template"]',
+    );
+  }
+
+  if ($template.length == 0) {
+    Console.error('Target is Null', 'Handlebars.write');
+    return;
+  }
+
+  const tpl_string = $template.html();
 
   //Compile the template
-  const compiled_template = Handlebars.compile(template_str);
+  const compiled_template = Handlebars.compile(tpl_string);
 
+  // inject render_data
   let rendered = compiled_template(render_data);
+  $(rendered).insertAfter($template);
 
-  if ($(target_element).length != 0) {
-    $(target_element).replaceWith(rendered);
-  } else Console.error(`target_element == null`, `Handlebars.render`);
+  $template.remove();
+  $(current_script).remove();
 };
 
 /* // 2024-02-08 :: END :: Handlebars */
 
-/* 2024-02-08 :: START :: Console */
-const Console = {};
-Console.log = (msg, label = 'NoLabel') => {
-  const label_style =
-    'border:1px solid black; background:#333; color:yellow; padding:0.25em 0.5em; font-size:12px; font-weight:bold; font-size:16px;';
-  const value_style =
-    'border:1px solid black; background:#ffffd4; color:#333; padding:0.25em 0.5em; font-size:12px; border-left:none; font-size:16px;';
-  console.log(`%c${label}%c${msg}`, label_style, value_style);
-};
-
-Console.error = (msg, label = 'NoLabel') => {
-  const label_style =
-    'border:1px dashed black; background:red; color:white; padding:0.25em 0.5em; font-size:12px; font-weight:bold; font-size:16px;';
-  const value_style =
-    'border:1px dashed black; background:#ffffd4; color:#333; padding:0.25em 0.5em; font-size:12px; border-left:none; font-size:16px;';
-  console.log(`%c${label}%c${msg}`, label_style, value_style);
-};
-
-/* // 2024-02-08 :: END :: Console */
 
