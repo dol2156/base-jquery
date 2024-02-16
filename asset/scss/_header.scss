@@ -1,21 +1,21 @@
 @use 'common/' as *;
 //
 body {
-  #Page > header {
+  #Header {
     background-color: white;
     transition: transform 300ms cubic-bezier(0.33, 1, 0.68, 1);
     will-change: auto;
   }
 
   &.StickyHeader {
-    #Page > header {
+    #Header {
       position: sticky;
       top: 0;
     }
   }
 
   &.AutoHideHeader {
-    #Page > header {
+    #Header {
       @at-root {
         html[data-scroll-top-header-over='true'][data-scroll-diretion='down']
           & {
@@ -26,7 +26,7 @@ body {
   }
 
   &.TransparentHeader {
-    #Page > header {
+    #Header {
       background-color: transparent;
       @at-root {
         // 헤더 높이 만큼 스크롤이 내려갔을때

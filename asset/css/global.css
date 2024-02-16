@@ -106,27 +106,27 @@ html.DEBUG .RRR2 > * {
   outline: 1px dashed yellow !important;
 }
 
-body #Page > header {
+body #Header {
   background-color: white;
   transition: transform 300ms cubic-bezier(0.33, 1, 0.68, 1);
   will-change: auto;
 }
-body.StickyHeader #Page > header {
+body.StickyHeader #Header {
   position: sticky;
   top: 0;
 }
-html[data-scroll-top-header-over=true][data-scroll-diretion=down] body.AutoHideHeader #Page > header {
+html[data-scroll-top-header-over=true][data-scroll-diretion=down] body.AutoHideHeader #Header {
   transform: translateY(calc(-1 * var(--header-hei)));
 }
 
-body.TransparentHeader #Page > header {
+body.TransparentHeader #Header {
   background-color: transparent;
 }
-html[data-scroll-top-first-section-over=true] body.TransparentHeader #Page > header {
+html[data-scroll-top-first-section-over=true] body.TransparentHeader #Header {
   background-color: white;
 }
 
-body.TransparentHeader #Page > header #Page > main {
+body.TransparentHeader #Header #Page > main {
   margin-top: calc(-1 * var(--header-hei));
 }
 
