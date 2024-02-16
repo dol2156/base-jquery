@@ -475,6 +475,18 @@ Handlebars.templateToHTML = (template_file_name, render_data) => {
  * template_str + render_data 반환
  * @param tpl_id
  * @param render_data
+ * ex)
+ * <script type="text/x-handlebars-template">
+ *   {{#EACH this}}
+ *     <div>
+ *       {{obj.name}}
+ *     </div>
+ *   {{/EACH}}
+ * </script>
+ * <script>
+ *   const json = Ajax.getSync('https://jsonplaceholder.typicode.com/users');
+ *   Handlebars.write(json);
+ * </script>
  */
 Handlebars.write = (render_data = {}, $tpl = null) => {
   const current_script = document.currentScript;

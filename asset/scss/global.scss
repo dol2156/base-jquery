@@ -3,6 +3,8 @@
 @use 'header';
 @use 'footer';
 :root {
+  --color-1: #18191f;
+  /**/
   --header-hei: 7.6rem;
   --footer-hei: 8.3rem;
   /**/
@@ -14,6 +16,10 @@
 html,
 body {
   font-family: 'Pretendard Variable', sans-serif;
+}
+/**/
+a {
+  display: block;
 }
 /**/
 section {

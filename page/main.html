@@ -6,7 +6,15 @@
       Include(`/page/component/layout/head.html`);
     </script>
   </head>
-  <body class="StickyHeader FixedFooter AutoHideHeader AutoHideFooter TransparentHeader">
+  <!--
+  # body class 옵션
+  StickyHeader - 헤더 스티키
+  AutoHideHeader - 스크롤 내리면 헤더 사라짐
+  FixedFooter - 푸터 고정
+  AutoHideFooter - 스크롤 내리면 푸터 사라짐
+  TransparentHeader - 스크롤 최상단일때 헤더 투명
+  -->
+  <body class="StickyHeader FixedFooter AutoHideHeader AutoHideFooter">
     <div id="Page">
       <script>
         Include(`/page/component/layout/header.html`);
@@ -14,7 +22,80 @@
       <main>
         <section>
           <div class="Inner">
-            <img src="https://gifpng.com/560x2315" alt=""/>
+            <article class="CenterBetween">
+              <div class="area">
+                <div class="text-[--color-1] text-[2.4rem] font-extrabold leading-[2.9rem]">이달의 인기 레시피</div>
+              </div>
+              <div class="area">
+                <a href="#" target="_blank" class="text-[#6D7278] text-[1.3rem] font-bold leading-[2.9rem]">
+                  전체보기
+                </a>
+              </div>
+            </article>
+
+            <ul class="mt-[2.5rem] space-y-[2.15rem]">
+              <script type="text/x-handlebars-template">
+                {{#LOOP 10}}
+                  <li>
+                    <article class='RRR flex flex-row gap-[0] gap-[2.14rem]'>
+                      <div class='area'>
+                        <figure class='w-[9.5rem] aspect-[95/102]'>
+                          <img
+                            class='rounded-[0.9rem] object-cover w-full h-full'
+                            src='https://picsum.photos/95/102.jpg?random={{index}}'
+                            alt=''
+                          />
+                        </figure>
+                      </div>
+                      <div class='area flex-1'>
+                        <article class='RR RRR h-full flex flex-row gap-[0] pt-[0.46rem] pb-[0.85rem] gap-[1.0rem]'>
+                          <div class='area flex-1'>
+                            <article class='h-full flex flex-col justify-between gap-[0]'>
+                              <div class='area'>
+                                <div class='text-[#55A500] text-[1.4rem] font-semibold'>
+                                  MZ세대 정복 vol1 디스트레스편
+                                  {{index}}
+                                </div>
+                                <div class='text-[--color-1] text-[1.7rem] font-extrabold'>
+                                  스트레스 없는 명절 보내기 레시피
+                                  {{index}}
+                                </div>
+                              </div>
+                              <div class='area'>
+                                <article class='CenterLeft gap-[1.0rem]'>
+                                  <button class='CenterCenter gap-[0.4rem]'>
+                                    <img class='w-[1.746rem]' src='/asset/img/ico_like.svg' alt='좋아요' />
+                                    <span class='text-[#000000] text-[1.2rem] font-medium'>
+                                      1,000
+                                    </span>
+                                  </button>
+                                  <button class='CenterCenter gap-[0.4rem]'>
+                                    <img class='w-[1.586rem]' src='/asset/img/ico_comment.svg' alt='댓글' />
+                                    <span class='text-[#000000] text-[1.2rem] font-medium'>
+                                      324
+                                    </span>
+                                  </button>
+                                </article>
+                              </div>
+                            </article>
+                          </div>
+                          <div class='area'>
+                            <article class='h-full flex flex-row items-end gap-[0]'>
+                              <button>
+                                <img class='w-[1.8rem ]' src='/asset/img/2402161059.svg' alt='북마크' />
+                              </button>
+                            </article>
+                          </div>
+                        </article>
+                      </div>
+                    </article>
+                  </li>
+                {{/LOOP}}
+              </script>
+              <script>
+                Handlebars.write();
+              </script>
+            </ul>
           </div>
         </section>
       </main>
